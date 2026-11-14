@@ -63,7 +63,9 @@ input[type=checkbox]:checked::after{transform:translateX(18px)}
 <div id="tb" class="glass chip" hidden></div>
 <div id="bar"></div>
 <div id="ov">
-<section class="scr c" id="menu"><h1>Flux</h1><p class="sub">Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.</p><div class="legend"><span><i id="l1"></i>Topla</span><span><i id="l2"></i>Kaç</span></div><button class="btn" id="play">Oyna</button><button class="btn g" id="onB" hidden>Çevrimiçi</button><button class="btn g" id="lbO">Skor tablosu</button><button class="btn g" id="open">Ayarlar</button><span class="best" id="bm"></span></section>
+<section class="scr c" id="wel" hidden><h1 style="font-size:46px">Flux</h1><p class="sub">Hoş geldin! Önce kendine bir ad seç. Skor tablosunda bu adla görüneceksin.</p><input class="txt" id="wName" maxlength="12" placeholder="Adın" style="width:100%;text-align:center;font-size:20px"><button class="btn" id="wGo">Devam</button></section>
+<section class="scr c" id="tut" hidden><div class="big" id="tI" style="font-size:54px"></div><h2 id="tT" style="margin-top:8px"></h2><p class="sub" id="tD"></p><div class="legend" id="tDots" style="margin-bottom:6px"></div><button class="btn" id="tN">İleri</button><button class="btn g" id="tS">Atla</button></section>
+<section class="scr c" id="menu"><h1>Flux</h1><p class="sub" id="hi" style="margin:8px 0 0;font-weight:700;color:var(--fg)"></p><p class="sub">Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.</p><div class="legend"><span><i id="l1"></i>Topla</span><span><i id="l2"></i>Kaç</span></div><button class="btn" id="play">Oyna</button><button class="btn g" id="onB" hidden>Çevrimiçi</button><button class="btn g" id="lbO">Skor tablosu</button><button class="btn g" id="how">Nasıl oynanır</button><button class="btn g" id="open">Ayarlar</button><span class="best" id="bm"></span></section>
 <section class="scr" id="set" hidden><h2>Ayarlar</h2>
 <div class="row">Zorluk<div class="seg" id="sDiff"><button data-v="0">Kolay</button><button data-v="1">Normal</button><button data-v="2">Zor</button></div></div>
 <p class="sub" id="sInfo" style="margin:8px 0 0"></p>
@@ -94,8 +96,8 @@ input[type=checkbox]:checked::after{transform:translateX(18px)}
 const $=id=>document.getElementById(id),cv=$('c'),cx=cv.getContext('2d');
 const PAL=[{g:'#ffd23f',b:'#ff3d9a',bg:'26,11,46'},{g:'#34e0a1',b:'#ff6b6b',bg:'8,18,38'},{g:'#ffb347',b:'#7c5cff',bg:'30,12,20'}];
 const DIFF=[{hp:4,sp:.8,rd:10,n:9,t:'4 can, yavaş tempo'},{hp:3,sp:1,rd:8,n:12,t:'3 can, dengeli tempo'},{hp:2,sp:1.25,rd:6,n:15,t:'2 can, hızlı tempo'}];
-const LB_URL='';
-const CFG={diff:1,pal:0,mut:true,vib:true,glow:true,snd:true,name:'Oyuncu',lb:'',sens:12,spec:true,freq:1};
+const LB_URL='https://flux-72f31-default-rtdb.firebaseio.com';
+const CFG={diff:1,pal:0,mut:true,vib:true,glow:true,snd:true,name:'Oyuncu',seen:false,lb:'',sens:12,spec:true,freq:1};
 const RULES=[
 {k:'swap',t:'Renkler yer değiştirdi',s:'Zararlı olanlar artık puan veriyor'},
 {k:'invert',t:'Ters kontrol',s:'Hareketlerin aynalandı'},
@@ -128,7 +130,7 @@ function sync(){
  for(const [id,k] of [['sDiff','diff'],['sPal','pal'],['sFreq','freq']])$(id).querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.v===CFG[k]));
  for(const [id,k] of [['sMut','mut'],['sSnd','snd'],['sVib','vib'],['sGlow','glow'],['sSpec','spec']])$(id).checked=CFG[k];
  $('sInfo').textContent=D().t+(CFG.mut?', mutasyon aralığı '+D().rd+' sn':'');
- $('bm').textContent='En iyi: '+best()+' (sürüm 5)';$('sName').value=CFG.name;$('sLb').value=CFG.lb||'';$('sSens').value=CFG.sens;
+ $('bm').textContent='En iyi: '+best()+' (APK sürüm 8)';$('sName').value=CFG.name;$('hi').textContent='Merhaba, '+CFG.name;$('sLb').value=CFG.lb||'';$('sSens').value=CFG.sens;
  if(W)bg()}
 function scr(n){$('ov').style.display=n?'flex':'none';document.querySelectorAll('.scr').forEach(e=>e.hidden=e.id!==n)}
 function reset(){const h=D().hp;S={sc:0,hp:h,mhp:h,t:0,rule:null,rt:0,px:W/2,py:H/2,items:[],parts:[],ang:0,run:false,inv:0,sp:0,fl:0,combo:0,lc:-9,maxc:0}}
@@ -273,7 +275,7 @@ function showRes(){
 function backLobby(){M=null;rnd=Math.random;$('tb').hidden=true;$('pz').hidden=false;rm.presence({sc:0,x:null,y:null,g:null}).catch(()=>{});scr('onl');lobbyUI()}
 $('lbO').onclick=()=>{scr('lb');showLb(CFG.diff)};$('lbX').onclick=()=>scr('menu');
 $('lbT').querySelectorAll('button').forEach(b=>b.onclick=()=>showLb(+b.dataset.v));
-$('onB').onclick=()=>{scr('onl');roomsTick()};$('onX').onclick=()=>{leaveRoom();scr('menu')};
+$('onB').onclick=()=>{if(!ro){toast('Çevrimiçi bileşeni yüklenemedi. İnternet açık mı, VPN kapalı mı?');return}scr('onl');roomsTick()};$('onX').onclick=()=>{leaveRoom();scr('menu')};
 $('jn').onclick=()=>{const c=$('code').value.trim().toUpperCase();if(c.length===4)joinRoom(c);else toast('4 harfli bir kod gir')};
 $('mk').onclick=()=>{const A='ABCDEFGHJKMNPQRSTUVWXYZ';let c='';for(let i=0;i<4;i++)c+=A[Math.random()*A.length|0];$('code').value=c;joinRoom(c)};
 $('lg').onclick=()=>{net.adv(null);advJ='';const g=Math.random()*1e9|0;lastG=g;rm.presence({g,gt:Date.now()}).catch(()=>{});startMatch(g)};
@@ -296,6 +298,13 @@ $('qk').onclick=async()=>{
  const o=L.filter(r=>!r.s&&r.n<4).sort((a,b)=>b.n-a.n)[0];
  o?joinRoom(o.c):mkPub(L)};
 $('mp').onclick=()=>mkPub();
+const TUT=[['👆','Parmağınla hareket et','Parmağını ekranda sürükle, topun seni takip eder.'],['●●','İyilere dokun, kötülerden kaç','İyi nesneler puan verir, diğer renk can götürür. Peş peşe toplarsan puan çarpanı artar.'],['★','Özel nesneler','♥ can verir, ★ 4 saniye dokunulmazlık sağlar, ? yeni bir mutasyon başlatır.'],['🌀','Arena değişir','Belirli aralıklarla kurallar değişir: kontroller ters döner, ışıklar söner, her şey hızlanır.'],['🏆','Rekabet et','Skor tablosuna gir, çevrimiçi odalarda düello ya da 2v2 oyna.']];
+let ti=0;
+function tut(i){ti=i;const t=TUT[i];$('tI').innerHTML=i===1?'<span style="color:'+P.g+'">●</span><span style="color:'+P.b+'">●</span>':t[0];$('tT').textContent=t[1];$('tD').textContent=t[2];$('tDots').textContent=TUT.map((_,k)=>k===i?'●':'○').join(' ');$('tN').textContent=i===TUT.length-1?'Başla':'İleri';scr('tut')}
+function tutEnd(){CFG.seen=true;save();sync();scr('menu')}
+$('tN').onclick=()=>ti<TUT.length-1?tut(ti+1):tutEnd();
+$('tS').onclick=tutEnd;$('how').onclick=()=>tut(0);
+$('wGo').onclick=()=>{CFG.name=($('wName').value.trim()||'Oyuncu').slice(0,12);save();sync();tut(0)};
 function peerList(){return new Promise(res=>{
  const out=[],ones={};let pr,pend=8,fin0=false;
  try{pr=new Peer()}catch(e){return res([])}
@@ -354,8 +363,8 @@ $('pz').onclick=pause;
 $('home').onclick=$('home2').onclick=home;
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
 try{Object.assign(CFG,JSON.parse(localStorage.getItem('flux_cfg')||'{}'))}catch(e){}
-rs();seed();sync();scr('menu');requestAnimationFrame(loop);
-(async()=>{try{if(window.claude&&claude.use){db=await claude.use('db');const u=await claude.use('user');if(u&&u.id)uid=await u.id();ro=await claude.use('room');if(ro)net={list:async()=>ro.peers().map(p=>p.presence&&p.presence.pub).filter(Boolean),adv:v=>ro.presence({pub:v}).catch(()=>{})}}}catch(e){}if(!ro){if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(!window.Peer)await new Promise(r=>{const x=document.createElement('script');x.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';x.onload=x.onerror=r;document.head.appendChild(x)});if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(window.Peer){ro={join:peerRoom};net={list:peerList,adv:()=>{}}}}$('onB').hidden=!ro;sync()})();
+rs();seed();sync();scr(CFG.seen?'menu':'wel');requestAnimationFrame(loop);
+(async()=>{try{if(window.claude&&claude.use){db=await claude.use('db');const u=await claude.use('user');if(u&&u.id)uid=await u.id();ro=await claude.use('room');if(ro)net={list:async()=>ro.peers().map(p=>p.presence&&p.presence.pub).filter(Boolean),adv:v=>ro.presence({pub:v}).catch(()=>{})}}}catch(e){}if(!ro){if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(!window.Peer)await new Promise(r=>{const x=document.createElement('script');x.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';x.onload=x.onerror=r;document.head.appendChild(x)});if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(window.Peer){ro={join:peerRoom};net={list:peerList,adv:()=>{}}}}$('onB').hidden=false;sync()})();
 </script>
 </body>
 </html>
