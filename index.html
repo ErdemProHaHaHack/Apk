@@ -53,6 +53,7 @@ input[type=checkbox]:checked::after{transform:translateX(18px)}
 .pl{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:6px 0;background:var(--line);border-radius:12px;text-align:left;font-weight:600}
 .pl i{width:12px;height:12px;border-radius:50%;flex:none}
 #tb{position:fixed;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top,0px) + 62px);font-size:14px;padding:6px 14px;pointer-events:none;white-space:nowrap}
+.beta{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:8px;background:var(--acc);color:var(--ink);vertical-align:middle}
 </style>
 </head>
 <body>
@@ -65,30 +66,27 @@ input[type=checkbox]:checked::after{transform:translateX(18px)}
 <div id="ov">
 <section class="scr c" id="wel" hidden><h1 style="font-size:46px">Flux</h1><div class="seg" id="wLang" style="width:max-content;margin:14px auto 0"><button data-v="0">Türkçe</button><button data-v="1">English</button></div><p class="sub">Hoş geldin! Önce kendine bir ad seç. Skor tablosunda bu adla görüneceksin.</p><input class="txt" id="wName" maxlength="12" placeholder="Adın" style="width:100%;text-align:center;font-size:20px"><button class="btn" id="wGo">Devam</button></section>
 <section class="scr c" id="tut" hidden><div class="big" id="tI" style="font-size:54px"></div><h2 id="tT" style="margin-top:8px"></h2><p class="sub" id="tD"></p><div class="legend" id="tDots" style="margin-bottom:6px"></div><button class="btn" id="tN">İleri</button><button class="btn g" id="tS">Atla</button></section>
-<section class="scr c" id="menu"><h1>Flux</h1><p class="sub" id="hi" style="margin:8px 0 0;font-weight:700;color:var(--fg)"></p><p class="sub">Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.</p><div class="legend"><span><i id="l1"></i>Topla</span><span><i id="l2"></i>Kaç</span></div><button class="btn" id="play">Oyna</button><button class="btn g" id="onB" hidden>Çevrimiçi</button><button class="btn g" id="lbO">Skorlar ve başarımlar</button><button class="btn g" id="how">Nasıl oynanır</button><button class="btn g" id="open">Ayarlar</button><span class="best" id="bm"></span></section>
+<section class="scr c" id="menu"><h1>Flux <span class="beta" id="ver">APK Beta</span></h1><p class="sub" id="hi" style="margin:8px 0 0;font-weight:700;color:var(--fg)"></p><p class="sub">Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.</p><div class="legend"><span><i id="l1"></i>Topla</span><span><i id="l2"></i>Kaç</span></div><button class="btn" id="play">Oyna</button><button class="btn g" id="onB">Çevrimiçi</button><button class="btn g" id="lbO">Skorlar ve başarımlar</button><button class="btn g" id="how">Nasıl oynanır</button><button class="btn g" id="open">Ayarlar</button><span class="best" id="bm"></span></section>
 <section class="scr" id="set" hidden><h2>Ayarlar</h2>
 <div class="row">Dil<div class="seg" id="sLang"><button data-v="0">Türkçe</button><button data-v="1">English</button></div></div>
 <div class="row">Zorluk<div class="seg" id="sDiff"><button data-v="0">Kolay</button><button data-v="1">Normal</button><button data-v="2">Zor</button></div></div>
 <p class="sub" id="sInfo" style="margin:8px 0 0"></p>
 <div class="row">Renkler<div class="seg" id="sPal"><button data-v="0">Neon</button><button data-v="1">Okyanus</button><button data-v="2">Günbatımı</button></div></div>
-<label class="row">Mutasyonlar<input type="checkbox" id="sMut"></label>
 <label class="row">Ses<input type="checkbox" id="sSnd"></label>
+<label class="row">Müzik<input type="checkbox" id="sMus"></label>
 <label class="row">Titreşim<input type="checkbox" id="sVib"></label>
 <label class="row">Parlama efekti<input type="checkbox" id="sGlow"></label>
 <div class="row">Top rengi<div class="seg" id="sSkin"><button data-v="0">Beyaz</button><button data-v="1">Mavi</button><button data-v="2">Yeşil</button><button data-v="3">Altın</button></div></div>
 <div class="row">Oyuncu adı<input class="txt" id="sName" maxlength="12"></div>
-<div class="row">Hassasiyet<input type="range" class="rng" id="sSens" min="6" max="24"></div>
-<div class="row">Mutasyon sıklığı<div class="seg" id="sFreq"><button data-v="0">Seyrek</button><button data-v="1">Normal</button><button data-v="2">Sık</button></div></div>
-<label class="row">Özel nesneler<input type="checkbox" id="sSpec"></label>
 <button class="btn" id="sBack">Tamam</button></section>
-<section class="scr c" id="pause" hidden><h2>Duraklatıldı</h2><button class="btn" id="res">Devam et</button><button class="btn g" id="open2">Ayarlar</button><button class="btn g" id="home">Ana menü</button></section>
+<section class="scr c" id="pause" hidden><h2>Duraklatıldı</h2><button class="btn" id="res">Devam et</button><button class="btn g" id="home">Ana menü</button></section>
 <section class="scr c" id="over" hidden><h2>Oyun bitti</h2><div class="big" id="oS"></div><span class="best" id="oN" style="margin:0"></span><div class="stats" id="oI"></div><button class="btn" id="again">Tekrar oyna</button><button class="btn g" id="home2">Ana menü</button></section>
-<section class="scr" id="lb" hidden><h2>Skor tablosu</h2><div class="seg" id="lbT"><button data-v="0">Kolay</button><button data-v="1">Normal</button><button data-v="2">Zor</button><button data-v="3">Başarım</button></div><p class="sub" id="lbS" style="margin:10px 0 4px"></p><table class="lb"><tbody id="lbB"></tbody></table><button class="btn" id="lbX">Geri</button></section>
+<section class="scr" id="lb" hidden><h2>Skor tablosu</h2><div class="seg" id="lbT" style="flex-wrap:wrap"><button data-v="0">Kolay</button><button data-v="1">Normal</button><button data-v="2">Zor</button><button data-v="3">Başarım</button><button data-v="4">İstatistik</button></div><p class="sub" id="lbS" style="margin:10px 0 4px"></p><table class="lb"><tbody id="lbB"></tbody></table><button class="btn" id="lbX">Geri</button></section>
 <section class="scr c" id="onl" hidden><h2>Çevrimiçi</h2>
-<div id="oj"><button class="btn" id="qk">Hızlı katıl</button><button class="btn g" id="mp">Açık oda kur</button>
+<div id="oj"><button class="btn" id="bt">Bota karşı oyna</button><p class="sub" id="onNo" hidden style="margin:14px 0 0">Çevrimiçi odalar şu an kullanılamıyor, bota karşı oynayabilirsin.</p><div id="onx"><button class="btn g" id="qk">Hızlı katıl</button><button class="btn g" id="mp">Açık oda kur</button>
 <div class="sub" style="margin:18px 0 6px;font-weight:700;color:var(--fg)">Açık odalar</div><div id="rl"></div>
 <div class="sub" style="margin:18px 0 8px;font-weight:700;color:var(--fg)">Özel oda</div>
-<input class="txt" id="code" maxlength="4" placeholder="Oda kodu" style="width:100%;text-align:center;font-size:22px;letter-spacing:.2em;text-transform:uppercase"><button class="btn" id="jn">Katıl</button><button class="btn g" id="mk">Özel oda kur</button><p class="sub" style="margin:14px 0 0;font-size:13px">Maç 60 saniye sürer. 2 kişi düello, 4 kişi 2v2 takım maçı olur.</p></div>
+<input class="txt" id="code" maxlength="4" placeholder="Oda kodu" style="width:100%;text-align:center;font-size:22px;letter-spacing:.2em;text-transform:uppercase"><button class="btn" id="jn">Katıl</button><button class="btn g" id="mk">Özel oda kur</button><p class="sub" style="margin:14px 0 0;font-size:13px">Maç 60 saniye sürer. 2 kişi düello, 4 kişi 2v2 takım maçı olur.</p></div></div>
 <div id="ol" hidden><div id="lc" style="font-weight:800;font-size:22px;margin-bottom:8px"></div><div id="lp"></div><p class="sub" id="lm"></p><button class="btn" id="lg" hidden>Maçı başlat</button></div>
 <button class="btn g" id="onX">Geri</button></section>
 </div>
@@ -98,7 +96,7 @@ const $=id=>document.getElementById(id),cv=$('c'),cx=cv.getContext('2d');
 const PAL=[{g:'#ffd23f',b:'#ff3d9a',bg:'26,11,46'},{g:'#34e0a1',b:'#ff6b6b',bg:'8,18,38'},{g:'#ffb347',b:'#7c5cff',bg:'30,12,20'}];
 const DIFF=[{hp:4,sp:.8,rd:10,n:9,t:'4 can, yavaş tempo'},{hp:3,sp:1,rd:8,n:12,t:'3 can, dengeli tempo'},{hp:2,sp:1.25,rd:6,n:15,t:'2 can, hızlı tempo'}];
 const LB_URL='https://flux-72f31-default-rtdb.firebaseio.com';
-const CFG={diff:1,pal:0,mut:true,vib:true,glow:true,snd:true,skin:0,ach:[],lang:/^tr/i.test(navigator.language||'tr')?0:1,name:'Oyuncu',seen:false,sens:12,spec:true,freq:1};
+const CFG={diff:1,pal:0,mut:true,vib:true,glow:true,snd:true,mus:true,skin:0,ach:[],lang:/^tr/i.test(navigator.language||'tr')?0:1,name:'Oyuncu',seen:false,sens:12,spec:true,freq:1};
 const RULES=[
 {k:'swap',t:'Renkler yer değiştirdi',s:'Zararlı olanlar artık puan veriyor'},
 {k:'invert',t:'Ters kontrol',s:'Hareketlerin aynalandı'},
@@ -126,44 +124,68 @@ const RULES=[
 {k:'torch',t:'Fener',s:'Sadece çok yakınını görebilirsin'},
 {k:'freeze',t:'Donma',s:'Nesneler olduğu yerde duruyor'}
 ];
-const SPC={h:{c:'#ffffff',g:'♥'},s:{c:'#4df3ff',g:'★'},j:{c:'#c6a6ff',g:'?'},z:{c:'#ffe066',g:'⏳'}};
-let P=PAL[0],M=null,rnd=Math.random,db=null,uid='',rm=null,ro=null,unsubs=[],oc='',lastG=0,advJ='',net={list:async()=>[],adv:()=>{}},S,W,H,bt,tt,ac,from='menu',idle=true,last=0,ptr={x:innerWidth/2,y:innerHeight/2};
+const SPC={h:{c:'#ffffff',g:'♥'},s:{c:'#4df3ff',g:'★'},j:{c:'#c6a6ff',g:'?'},z:{c:'#ffe066',g:'⏳'},b:{c:'#ff9f43',g:'✸'}};
+let P=PAL[0],M=null,rnd=Math.random,db=null,uid='',rm=null,ro=null,unsubs=[],oc='',lastG=0,tgt={x:0,y:0},pid=null,lx=0,ly=0,BOT=null,advJ='',net={list:async()=>[],adv:()=>{}},S,W,H,bt,tt,ac,from='menu',idle=true,last=0,ptr={x:innerWidth/2,y:innerHeight/2};
 const D=()=>DIFF[M?1:CFG.diff],PR=k=>k==='big'?30:k==='tiny'?8:14,RD=()=>Math.max(4,D().rd*(M?1:[1.4,1,.7][CFG.freq])-S.sc/12),GB=()=>CFG.glow?18:0;
-const pick=()=>{if(!CFG.spec&&!M)return'';const q=rnd();return q<.04?'h':q<.08?'s':q<.11?'z':q<.16&&(CFG.mut||M)?'j':''};
+const pick=()=>{if(!CFG.spec&&!M)return'';const q=rnd();return q<.04?'h':q<.08?'s':q<.11?'z':q<.14?'b':q<.19&&!M?'j':''};
 function bg(){cx.fillStyle='rgb('+P.bg+')';cx.fillRect(0,0,W,H)}
-function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);bg()}
+function rs(){const d=Math.min(devicePixelRatio||1,2);const ow=W,oh=H;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);bg();
+ if(ow&&oh&&S){const fx=W/ow,fy=H/oh;for(const i of S.items){i.x*=fx;i.y*=fy}S.px*=fx;S.py*=fy;tgt.x*=fx;tgt.y*=fy;if(BOT){BOT.x*=fx;BOT.y*=fy}}}
 addEventListener('resize',rs);
-cv.addEventListener('pointermove',e=>{ptr.x=e.clientX;ptr.y=e.clientY});
-cv.addEventListener('pointerdown',e=>{ptr.x=e.clientX;ptr.y=e.clientY});
-function beep(f,d=.08,t='sine'){if(!CFG.snd)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume();const o=ac.createOscillator(),g=ac.createGain();o.type=t;o.frequency.value=f;g.gain.value=.05;o.connect(g);g.connect(ac.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+d);o.stop(ac.currentTime+d)}catch(e){}}
+function clampP(o,kx,ky,k){
+ const m=PR(k)+2;
+ if(S.ang){const c=Math.cos(S.ang),sn=Math.sin(S.ang),dx=o[kx]-W/2,dy=o[ky]-H/2;
+  let x=W/2+dx*c-dy*sn,y=H/2+dx*sn+dy*c;x=Math.max(m,Math.min(W-m,x));y=Math.max(m,Math.min(H-m,y));
+  const ex=x-W/2,ey=y-H/2,c2=Math.cos(-S.ang),s2=Math.sin(-S.ang);o[kx]=W/2+ex*c2-ey*s2;o[ky]=H/2+ex*s2+ey*c2}
+ else{o[kx]=Math.max(m,Math.min(W-m,o[kx]));o[ky]=Math.max(m,Math.min(H-m,o[ky]))}}
+function mv(dx,dy){
+ if(M&&!M.on)return;
+ const k=S.rule?S.rule.k:'';let x=dx,y=dy;
+ if(S.ang){const c=Math.cos(-S.ang),sn=Math.sin(-S.ang),a=x*c-y*sn;y=x*sn+y*c;x=a}
+ if(k==='invert'){x=-x;y=-y}if(k==='flipx')x=-x;if(k==='flipy')y=-y;
+ tgt.x+=x*1.2;tgt.y+=y*1.2;clampP(tgt,'x','y',k)}
+cv.addEventListener('pointermove',e=>{if(e.pointerId!==pid||!S||!S.run)return;mv(e.clientX-lx,e.clientY-ly);lx=e.clientX;ly=e.clientY});
+cv.addEventListener('pointerdown',e=>{if(pid!==null)return;pid=e.pointerId;lx=e.clientX;ly=e.clientY;try{cv.setPointerCapture(pid)}catch(x){}});
+const pup=e=>{if(e.pointerId===pid)pid=null};
+cv.addEventListener('pointerup',pup);cv.addEventListener('pointercancel',pup);cv.addEventListener('lostpointercapture',pup);
+function actx(){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}catch(e){return null}}
+function unlock(){const a=actx();if(!a)return;try{const b=a.createBuffer(1,1,22050),q=a.createBufferSource();q.buffer=b;q.connect(a.destination);q.start(0)}catch(e){}}
+['pointerdown','touchstart','touchend','click','keydown'].forEach(ev=>addEventListener(ev,unlock,{passive:true}));
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('button'))beep(520,.05,'triangle',.04)});
+function beep(f,d=.08,t='sine',v=.05,at=0){if(!CFG.snd)return;const a=actx();if(!a)return;try{const o=a.createOscillator(),g=a.createGain(),t0=a.currentTime+at;o.type=t;o.frequency.setValueAtTime(f,t0);g.gain.setValueAtTime(v,t0);g.gain.exponentialRampToValueAtTime(.0001,t0+d);o.connect(g);g.connect(a.destination);o.start(t0);o.stop(t0+d+.02)}catch(e){}}
+let mi=0;const MN=[261.6,311.1,392,466.2,392,311.1,349.2,392];
+setInterval(()=>{if(!CFG.mus||!CFG.snd||!S||!S.run||document.hidden)return;beep(MN[mi%8]*(mi%16<8?1:.75),.35,'triangle',.016);if(mi%4===0)beep(MN[0]/2,.5,'sine',.03);mi++},260);
 function buzz(){if(CFG.vib)try{navigator.vibrate&&navigator.vibrate(60)}catch(e){}}
 function best(){try{return+localStorage.getItem('flux_best'+CFG.diff)||0}catch(e){return 0}}
 function save(){try{localStorage.setItem('flux_cfg',JSON.stringify(CFG))}catch(e){}}
 function sync(){
  P=PAL[CFG.pal];document.documentElement.style.setProperty('--acc',P.g);
  $('l1').style.background=P.g;$('l2').style.background=P.b;
- for(const [id,k] of [['sDiff','diff'],['sPal','pal'],['sFreq','freq'],['sSkin','skin'],['sLang','lang'],['wLang','lang']])$(id).querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.v===CFG[k]));
- for(const [id,k] of [['sMut','mut'],['sSnd','snd'],['sVib','vib'],['sGlow','glow'],['sSpec','spec']])$(id).checked=CFG[k];
+ for(const [id,k] of [['sDiff','diff'],['sPal','pal'],['sSkin','skin'],['sLang','lang'],['wLang','lang']])$(id).querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.v===CFG[k]));
+ for(const [id,k] of [['sSnd','snd'],['sMus','mus'],['sVib','vib'],['sGlow','glow']])$(id).checked=CFG[k];
  $('sInfo').textContent=D().t+(CFG.mut?', mutasyon aralığı '+D().rd+' sn':'');
- $('bm').textContent='En iyi: '+best()+' (APK sürüm 10)';$('sName').value=CFG.name;$('hi').textContent='Merhaba, '+CFG.name;$('sSens').value=CFG.sens;
+ $('bm').textContent='En iyi: '+best();$('sName').value=CFG.name;$('hi').textContent='Merhaba, '+CFG.name;
  applyLang();if(W)bg()}
-function scr(n){$('hud').style.display=n?'none':'flex';$('ov').style.display=n?'flex':'none';document.querySelectorAll('.scr').forEach(e=>e.hidden=e.id!==n)}
-function reset(){const h=D().hp;S={sc:0,hp:h,mhp:h,t:0,rule:null,rt:0,px:W/2,py:H/2,items:[],parts:[],ang:0,run:false,inv:0,sp:0,fl:0,combo:0,lc:-9,maxc:0}}
+function scr(n){pid=null;if(n==='menu'||n==='wel'||n==='tut')orient(false);$('hud').style.display=n?'none':'flex';$('ov').style.display=n?'flex':'none';document.querySelectorAll('.scr').forEach(e=>e.hidden=e.id!==n)}
+function reset(){const h=D().hp;S={sc:0,hp:h,mhp:h,t:0,rule:null,rt:0,px:W/2,py:H/2,items:[],parts:[],ang:0,run:false,inv:0,sp:0,fl:0,combo:0,lc:-9,maxc:0,nl:25};tgt.x=W/2;tgt.y=H/2}
 function seed(){reset();for(let n=0;n<10;n++)spawn()}
-function hud(){$('sc').textContent=S.sc+(S.combo>=5?' ×'+(1+Math.min(3,S.combo/5|0)):'');$('lv').textContent=M?Math.max(0,M.s||M.dur)+' sn':'♥'.repeat(S.hp)+'♡'.repeat(S.mhp-S.hp)}
+function hud(){$('sc').textContent=S.sc+(S.combo>=5?' ×'+(1+Math.min(3,S.combo/5|0)):'');const hr='♥'.repeat(Math.max(0,S.hp))+'♡'.repeat(Math.max(0,S.mhp-S.hp));$('lv').textContent=M?hr+'  '+Math.max(0,M.s||M.dur)+' sn':hr}
 function show(r){const b=$('banner');b.innerHTML=r.t+'<small>'+r.s+'</small>';b.style.opacity=1;clearTimeout(bt);bt=setTimeout(()=>b.style.opacity=0,2300)}
 function toast(m){const e=$('toast');e.textContent=m;e.style.opacity=1;clearTimeout(tt);tt=setTimeout(()=>e.style.opacity=0,1600)}
+function setRule(r){S.rule=r;S.rt=0;show(r);beep(330,.18,'triangle')}
 function nextRule(){let r;do{r=RULES[rnd()*RULES.length|0]}while(r===S.rule);S.rule=r;S.rt=0;show(r);beep(330,.18,'triangle')}
+function pickG(){let a=0,b=0;for(const i of S.items)if(!i.sp){i.g?a++:b++}if(S.bomb>0)return rnd()<.85;return (b<=a||b<4)?false:(a<3&&b>a+1)?true:(b>a+1&&rnd()<.38)}
 function spawn(){
  let x,y;do{x=rnd()*W;y=rnd()*H}while(Math.hypot(x-S.px,y-S.py)<130);
  const a=rnd()*6.283,v=(60+rnd()*70+S.sc*1.5)*D().sp,s0=pick();
- S.items.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:rnd()<.55,r:13+rnd()*6,sp:s0,life:s0?9:1e9})}
+ S.items.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:pickG(),r:13+rnd()*6,sp:s0,life:s0?9:1e9})}
 function burst(x,y,c){for(let i=0;i<10;i++){const a=Math.random()*6.283,v=60+Math.random()*140;S.parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:.5,c})}}
 function special(i){
- burst(i.x,i.y,SPC[i.sp].c);beep(880,.12);
+ burst(i.x,i.y,SPC[i.sp].c);beep(880,.1,'triangle');beep(1175,.12,'triangle',.05,.09);
  if(i.sp==='h'){if(S.hp<S.mhp){S.hp++;toast('Can kazandın')}else{S.sc+=5;toast('+5 puan')}}
  else if(i.sp==='s'){S.inv=4;toast('Dokunulmazlık: 4 sn')}
  else if(i.sp==='z'){S.slow=5;toast('Yavaşlatma: 5 sn')}
+ else if(i.sp==='b'){const sw=S.rule&&S.rule.k==='swap';S.items=S.items.filter(x=>x.sp||x.g!==sw);S.bomb=4;beep(110,.3,'sawtooth',.06);toast('Bomba: zararlılar temizlendi')}
  else{toast('Joker: yeni mutasyon');nextRule()}
  hud()}
 function world(k){
@@ -171,7 +193,7 @@ function world(k){
  if(k==='spin'||S.ang){const dx=x-W/2,dy=y-H/2,c=Math.cos(-S.ang),s=Math.sin(-S.ang);x=W/2+dx*c-dy*s;y=H/2+dx*s+dy*c}
  if(k==='invert'){x=W-x;y=H-y}if(k==='flipx')x=W-x;if(k==='flipy')y=H-y;
  return [x,y]}
-function play(){rnd=Math.random;M=null;$('tb').hidden=true;$('pz').hidden=false;reset();idle=false;S.run=true;hud();scr(null);$('banner').style.opacity=0;$('bar').hidden=!CFG.mut;bg()}
+function play(){orient(true);beep(660,.1,'triangle');beep(880,.15,'triangle',.05,.1);rnd=Math.random;M=null;$('tb').hidden=true;$('pz').hidden=false;reset();idle=false;S.run=true;hud();scr(null);$('banner').style.opacity=0;$('bar').hidden=!CFG.mut;bg()}
 function pause(){if(S.run&&!M){S.run=false;scr('pause')}}
 function home(){leaveRoom();rnd=Math.random;S.run=false;$('tb').hidden=true;$('pz').hidden=false;seed();idle=true;sync();scr('menu')}
 function end(){
@@ -179,19 +201,26 @@ function end(){
  if(nw)try{localStorage.setItem('flux_best'+CFG.diff,S.sc)}catch(e){}
  $('oS').textContent=S.sc;$('oN').textContent=nw?'Yeni rekor':'En iyi: '+old;
  $('oI').innerHTML='<div><b>'+(S.t|0)+' sn</b><span>Süre</span></div><div><b>'+S.maxc+'</b><span>En uzun seri</span></div><div><b>'+['Kolay','Normal','Zor'][CFG.diff]+'</b><span>Zorluk</span></div>';
- $('oS').style.fontSize='';$('again').textContent='Tekrar oyna';submit(S.sc);ach(['g1',S.sc>=25&&'s25',S.sc>=50&&'s50',S.maxc>=15&&'c15',S.t>=60&&'t60'].filter(Boolean));$('banner').style.opacity=0;scr('over');sync()}
+ beep(220,.3,'sawtooth',.05);beep(165,.45,'sawtooth',.05,.25);$('oS').style.fontSize='';$('again').textContent='Tekrar oyna';submit(S.sc);{const st=CFG.st=CFG.st||{g:0,sc:0,t:0,mc:0};st.g++;st.sc+=S.sc;st.t+=S.t;st.mc=Math.max(st.mc,S.maxc);save()}ach(['g1',S.sc>=25&&'s25',S.sc>=50&&'s50',S.maxc>=15&&'c15',S.t>=60&&'t60'].filter(Boolean));$('banner').style.opacity=0;scr('over');sync()}
 function step(dt){
  if(M&&matchTick(dt))return;
  S.t+=dt;S.rt+=dt;
- if(CFG.mut||M){if(!S.rule&&S.t>6)nextRule();else if(S.rule&&S.rt>RD())nextRule()}
+ if(M){const sl=Math.floor(((performance.now()-M.t0)/1000-5)/8);if(sl>=0&&sl!==M.sl){M.sl=sl;setRule(RULES[M.seq[sl%M.seq.length]])}}
+ else if(CFG.mut){if(!S.rule&&S.t>6)nextRule();else if(S.rule&&S.rt>RD())nextRule()}
  const k=S.rule?S.rule.k:'',d=dt*(k==='fast'?2:k==='slow'?.5:k==='freeze'?0:1)*(S.slow>0?.5:1);
  if(k==='spin')S.ang+=dt*.9;else S.ang*=.9;
  if(S.ang>Math.PI)S.ang-=6.2832;
  if(Math.abs(S.ang)<.01&&k!=='spin')S.ang=0;
- const [wx,wy]=world(k),f=Math.min(1,dt*CFG.sens*(k==='lag'?.2:1));
- S.px+=(wx-S.px)*f;S.py+=(wy-S.py)*f;
- S.sp-=dt;if(S.items.length<D().n+(k==='frenzy'?8:0)&&S.sp<=0){spawn();S.sp=k==='frenzy'?.15:.4}
- S.inv=Math.max(0,S.inv-dt);S.fl=Math.max(0,S.fl-dt);S.slow=Math.max(0,(S.slow||0)-dt);
+ const f=Math.min(1,dt*CFG.sens*(k==='lag'?.2:1));
+ S.px+=(tgt.x-S.px)*f;S.py+=(tgt.y-S.py)*f;clampP(S,'px','py',k);
+ S.sp-=dt;const cap=D().n+(k==='frenzy'?8:0);let ya=0,pb=0;
+ for(const i of S.items)if(!i.sp){i.g?ya++:pb++}
+ const bm=S.bomb>0;
+ if(!bm&&S.items.length>=cap){
+  if(pb<=ya||pb<4){const x=S.items.findIndex(i=>!i.sp&&i.g);if(x>=0)S.items.splice(x,1)}
+  else if(ya<3&&pb>ya+1){const x=S.items.findIndex(i=>!i.sp&&!i.g);if(x>=0)S.items.splice(x,1)}}
+ if(S.items.length<cap&&(S.sp<=0||(!bm&&(pb<=ya||ya<3)))){spawn();S.sp=k==='frenzy'?.15:.4}
+ S.inv=Math.max(0,S.inv-dt);S.fl=Math.max(0,S.fl-dt);S.slow=Math.max(0,(S.slow||0)-dt);S.bomb=Math.max(0,(S.bomb||0)-dt);
  if(S.combo&&S.t-S.lc>2){S.combo=0;hud()}
  for(const i of S.items){
   if(k==='magnet'){const dx=S.px-i.x,dy=S.py-i.y,L=Math.hypot(dx,dy)||1;i.vx+=dx/L*280*d;i.vy+=dy/L*280*d;const v=Math.hypot(i.vx,i.vy);if(v>270){i.vx*=270/v;i.vy*=270/v}}
@@ -203,14 +232,14 @@ function step(dt){
   i.x+=i.vx*d;i.y+=i.vy*d;
   if(k==='warp'){i.x=(i.x%W+W)%W;i.y=(i.y%H+H)%H}else{if(i.x<i.r||i.x>W-i.r){i.vx*=-1;i.x=Math.min(W-i.r,Math.max(i.r,i.x))}
   if(i.y<i.r||i.y>H-i.r){i.vy*=-1;i.y=Math.min(H-i.r,Math.max(i.r,i.y))}}}
- for(let n=S.items.length-1;n>=0;n--){const i=S.items[n];
+ for(let n=S.items.length-1;n>=0;n--){const i=S.items[n];if(!i)continue;
   if(i.life<=0){S.items.splice(n,1);continue}
-  if(Math.hypot(i.x-S.px,i.y-S.py)<i.r+PR(k)){
+  if(!S.out&&Math.hypot(i.x-S.px,i.y-S.py)<i.r+PR(k)){
    const good=i.g!==(k==='swap');S.items.splice(n,1);
    if(i.sp){special(i);continue}
    burst(i.x,i.y,i.g?P.g:P.b);
-   if(good){S.combo=S.t-S.lc<2?S.combo+1:1;S.lc=S.t;S.maxc=Math.max(S.maxc,S.combo);S.sc+=(1+Math.min(3,S.combo/5|0))*(k==='bonus'?2:1);beep(520+Math.min(S.combo,20)*25,.07)}
-   else if(S.inv<=0){S.combo=0;if(M){S.sc=Math.max(0,S.sc-2);S.inv=1;S.fl=.25;buzz();hud();continue}S.hp--;S.inv=.9;S.fl=.25;buzz();beep(140,.22,'sawtooth');if(S.hp<=0){hud();return end()}}
+   if(good){S.combo=S.t-S.lc<2?S.combo+1:1;S.lc=S.t;S.maxc=Math.max(S.maxc,S.combo);S.sc+=(1+Math.min(3,S.combo/5|0))*(k==='bonus'?2:1);if(!M&&S.sc>=S.nl){S.nl+=25;if(S.hp<S.mhp){S.hp++;toast('Bonus can: +1')}}beep(520+Math.min(S.combo,20)*25,.07)}
+   else if(S.inv<=0){S.combo=0;if(M){S.hp--;S.inv=1;S.fl=.25;buzz();beep(140,.22,'sawtooth');if(S.hp<=0){S.out=true;toast('Elendin');rm.presence({sc:S.sc,hp:0}).catch(()=>{})}hud();continue}S.hp--;S.inv=.9;S.fl=.25;buzz();beep(140,.22,'sawtooth');if(S.hp<=0){hud();return end()}}
    hud()}}
  for(let n=S.parts.length-1;n>=0;n--){const p=S.parts[n];p.x+=p.vx*dt;p.y+=p.vy*dt;p.l-=dt;if(p.l<=0)S.parts.splice(n,1)}
  $('bar').style.transform='scaleX('+Math.max(0,1-(S.rule?S.rt/RD():S.t/6))+')'}
@@ -226,7 +255,7 @@ function draw(){
   if(i.sp){cx.shadowBlur=0;cx.fillStyle='#101428';cx.font='bold 16px system-ui';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(SPC[i.sp].g,i.x,i.y+1)}}
  cx.globalAlpha=1;
  ghosts();for(const p of S.parts){cx.globalAlpha=Math.max(0,p.l*2);cx.fillStyle=cx.shadowColor=p.c;cx.beginPath();cx.arc(p.x,p.y,3,0,6.283);cx.fill()}
- if(!idle){cx.globalAlpha=S.inv>0&&(S.inv*14|0)%2?.35:1;cx.fillStyle=cx.shadowColor=SK[CFG.skin]||'#fff';cx.shadowBlur=GB()+4;cx.beginPath();cx.arc(S.px,S.py,PR(k),0,6.283);cx.fill();if(M){cx.shadowBlur=0;cx.strokeStyle=TC[M.my];cx.lineWidth=4;cx.stroke()}}
+ if(!idle&&!S.out){cx.globalAlpha=S.inv>0&&(S.inv*14|0)%2?.35:1;cx.fillStyle=cx.shadowColor=SK[CFG.skin]||'#fff';cx.shadowBlur=GB()+4;cx.beginPath();cx.arc(S.px,S.py,PR(k),0,6.283);cx.fill();if(M){cx.shadowBlur=0;cx.strokeStyle=TC[M.my];cx.lineWidth=4;cx.stroke()}}
  cx.restore();cx.globalAlpha=1;cx.shadowBlur=0;
  if((k==='dark'||k==='torch')&&S.run){const g=cx.createRadialGradient(S.px,S.py,k==='torch'?20:30,S.px,S.py,k==='torch'?105:175);g.addColorStop(0,'rgba('+P.bg+',0)');g.addColorStop(1,'rgba('+P.bg+',.97)');cx.fillStyle=g;cx.fillRect(0,0,W,H)}
  if(S.fl>0){cx.fillStyle='rgba(255,60,80,'+S.fl*1.4+')';cx.fillRect(0,0,W,H)}}
@@ -244,6 +273,7 @@ async function submit(sc){
  try{const ref=db.collection('lb'+d).doc(uid||nkey(nm)),o=await ref.get();if(!o.exists||(o.data().score||0)<sc)await ref.set({name:nm,score:sc,t:Date.now()})}catch(e){}}
 async function showLb(d){
  $('lbT').querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.v===d));
+ if(d===4){const t=CFG.st||{g:0,sc:0,t:0,mc:0},Q=[['Oynanan oyun',t.g],['Toplam skor',t.sc],['En uzun seri',t.mc],['Toplam süre',Math.round(t.t/60)+' dk']];$('lbS').textContent='';$('lbB').innerHTML=Q.map(r=>'<tr><td></td><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');return}
  if(d===3){const A=CFG.ach||[];$('lbS').textContent=A.length+'/'+Object.keys(ACH).length+' açıldı';$('lbB').innerHTML=Object.keys(ACH).map(k=>'<tr><td>'+(A.includes(k)?'✓':'○')+'</td><td>'+ACH[k]+'</td><td></td></tr>').join('');return}
  $('lbS').textContent=db||lbUrl()?'Küresel liste':'Bu cihazdaki skorlar';
  $('lbB').innerHTML='<tr><td colspan="3">Yükleniyor…</td></tr>';let rows=[];
@@ -264,46 +294,49 @@ async function joinRoom(code){
  oc=code;lastG=-1;rm.presence({n:CFG.name||'Oyuncu',sc:0}).catch(()=>{});
  unsubs=[rm.onPeers(()=>{if(!M){lobbyUI();goCheck()}})];
  $('oj').hidden=true;$('ol').hidden=false;lobbyUI()}
-function leaveRoom(){if(advJ){net.adv(null);advJ=''}unsubs.forEach(f=>f());unsubs=[];if(rm){rm.leave().catch(()=>{});rm=null}M=null;$('oj').hidden=false;$('ol').hidden=true}
-function startMatch(seed){
+function leaveRoom(){BOT=null;if(advJ){net.adv(null);advJ=''}unsubs.forEach(f=>f());unsubs=[];if(rm){rm.leave().catch(()=>{});rm=null}M=null;$('oj').hidden=false;$('ol').hidden=true}
+function startMatch(seed){orient(true);
  const p=plist(),n=p.length;M={t0:performance.now()+3500,dur:60,id:{},nm:{},g:{},n,my:0,c:0};
  p.forEach((q,i)=>{const t=n===4?i%2:i%4;M.id[q.peer]=t;M.nm[q.peer]=(q.presence&&q.presence.n)||'Oyuncu';if(q.isMe)M.my=t});
- seedRng(seed);reset();S.hp=S.mhp=9;idle=false;S.run=true;scr(null);$('bar').hidden=true;$('pz').hidden=true;$('tb').hidden=false;bg();hud();tbUpd();
- rm.presence({sc:0}).catch(()=>{})}
+ seedRng(seed);{let a=(seed^0x9e3779b9)>>>0;const rr=()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296};M.seq=[];let pv=-1;for(let i=0;i<12;i++){let r;do{r=rr()*RULES.length|0}while(r===pv);M.seq.push(r);pv=r}}reset();S.hp=S.mhp=3;idle=false;S.run=true;scr(null);$('bar').hidden=true;$('pz').hidden=true;$('tb').hidden=false;bg();hud();tbUpd();
+ rm.presence({sc:0,hp:3}).catch(()=>{})}
 function matchTick(dt){
  const el=(performance.now()-M.t0)/1000;
- if(el<0){const c=Math.ceil(-el);if(M.c!==c){M.c=c;const b=$('banner');b.textContent=c;b.style.opacity=1}return true}
- if(!M.on){M.on=1;$('banner').style.opacity=0;M.pt=0;M.tb=0}
+ if(el<0){const c=Math.ceil(-el);if(M.c!==c){M.c=c;const b=$('banner');b.textContent=c;b.style.opacity=1;beep(440,.12,'square',.04)}return true}
+ if(!M.on){M.on=1;beep(880,.25,'square',.05);$('banner').style.opacity=0;M.pt=0;M.tb=0}
  M.left=M.dur-el;if(M.left<=0){matchEnd();return true}
+ {const al=new Set();for(const q of plist()){const t=M.id[q.peer];if(t==null)continue;if(q.isMe?!S.out:!(q.presence&&q.presence.hp===0))al.add(t)}if(al.size<=1){M.by=al.size===1?[...al][0]:-1;matchEnd();return true}}
  const s=Math.ceil(M.left);if(M.s!==s){M.s=s;hud()}
- if((M.pt-=dt)<=0){M.pt=.15;rm.presence({sc:S.sc,x:S.px/W,y:S.py/H}).catch(()=>{})}
+ if(BOT)botStep(dt);
+ if((M.pt-=dt)<=0){M.pt=.15;rm.presence({sc:S.sc,x:S.px/W,y:S.py/H,hp:S.hp}).catch(()=>{})}
  if((M.tb-=dt)<=0){M.tb=.25;tbUpd()}
  return false}
-function tbUpd(){const t={};for(const p of plist()){const k=M.id[p.peer];if(k==null)continue;t[k]=(t[k]||0)+(p.isMe?S.sc:(+(p.presence&&p.presence.sc)||0))}
- $('tb').textContent=Object.keys(t).map(k=>tl(+k)+' '+t[k]).join('   |   ')}
+function tbUpd(){const t={},h={};
+ for(const p of plist()){const k=M.id[p.peer];if(k==null)continue;t[k]=(t[k]||0)+(p.isMe?S.sc:(+(p.presence&&p.presence.sc)||0));const hp=p.isMe?S.hp:(p.presence&&p.presence.hp!=null?p.presence.hp:3);h[k]=(h[k]||0)+Math.max(0,hp)}
+ $('tb').textContent=Object.keys(t).map(k=>tl(+k)+' '+t[k]+' ♥'+h[k]).join('   |   ')}
 function ghosts(){
  if(!M||!rm)return;
- for(const p of rm.peers()){if(p.isMe)continue;const q=p.presence||{};if(q.x==null)continue;
+ for(const p of rm.peers()){if(p.isMe)continue;const q=p.presence||{};if(q.x==null||q.hp===0)continue;
   const g=M.g[p.peer]||(M.g[p.peer]={x:q.x*W,y:q.y*H});g.x+=(q.x*W-g.x)*.3;g.y+=(q.y*H-g.y)*.3;
-  cx.globalAlpha=.85;cx.fillStyle=cx.shadowColor=TC[M.id[p.peer]]||'#fff';cx.shadowBlur=GB();cx.beginPath();cx.arc(g.x,g.y,14,0,6.283);cx.fill();
+  cx.globalAlpha=(BOT&&p.peer==='b-bot'&&BOT.inv>0&&((BOT.inv*14|0)%2))?.3:.85;cx.fillStyle=cx.shadowColor=TC[M.id[p.peer]]||'#fff';cx.shadowBlur=GB();cx.beginPath();cx.arc(g.x,g.y,14,0,6.283);cx.fill();
   cx.shadowBlur=0;cx.globalAlpha=1;cx.fillStyle='#fff';cx.font='600 11px system-ui';cx.textAlign='center';cx.fillText(M.nm[p.peer]||'',g.x,g.y-22)}}
-function matchEnd(){S.run=false;idle=true;$('tb').hidden=true;$('banner').style.opacity=0;rm.presence({sc:S.sc}).catch(()=>{});setTimeout(showRes,1500)}
+function matchEnd(){S.run=false;idle=true;$('tb').hidden=true;$('banner').style.opacity=0;rm.presence({sc:S.sc,hp:S.hp}).catch(()=>{});setTimeout(showRes,1500)}
 function showRes(){
  if(!M)return;const tot={};
  for(const q of plist()){const t=M.id[q.peer];if(t==null)continue;tot[t]=(tot[t]||0)+(q.isMe?S.sc:(+(q.presence&&q.presence.sc)||0))}
- const ts=Object.keys(tot).map(Number).sort((a,b)=>tot[b]-tot[a]),tie=ts.length>1&&tot[ts[0]]===tot[ts[1]];
- $('oS').style.fontSize='36px';$('oS').textContent=tie?'Berabere':ts[0]===M.my?'Kazandın':'Kaybettin';$('oN').textContent='Süre doldu';
+ const ts=Object.keys(tot).map(Number).sort((a,b)=>tot[b]-tot[a]),el=M.by!=null&&M.by>=0,win=el?M.by:ts[0],tie=!el&&ts.length>1&&tot[ts[0]]===tot[ts[1]];
+ $('oS').style.fontSize='36px';$('oS').textContent=tie?'Berabere':win===M.my?'Kazandın':'Kaybettin';$('oN').textContent=el?'Elenme ile bitti':'Süre doldu';(tie?[440,440]:win===M.my?[523,659,784,1047]:[330,262,196]).forEach((f,i)=>beep(f,.2,'triangle',.06,i*.13));
  $('oI').innerHTML=ts.map(t=>'<div><b style="color:'+TC[t]+'">'+tot[t]+'</b><span>'+esc(tl(t))+'</span></div>').join('');
- $('again').textContent='Lobiye dön';ach(['mp']);scr('over')}
-function backLobby(){M=null;rnd=Math.random;$('tb').hidden=true;$('pz').hidden=false;rm.presence({sc:0,x:null,y:null,g:null}).catch(()=>{});scr('onl');lobbyUI()}
+ $('again').textContent=BOT?'Tekrar oyna':'Lobiye dön';if(BOT){if(!tie&&win===M.my)ach(['bot'])}else ach(['mp']);scr('over')}
+function backLobby(){if(BOT){startBot();return}M=null;rnd=Math.random;$('tb').hidden=true;$('pz').hidden=false;rm.presence({sc:0,x:null,y:null,g:null}).catch(()=>{});scr('onl');lobbyUI()}
 $('lbO').onclick=()=>{scr('lb');showLb(CFG.diff)};$('lbX').onclick=()=>scr('menu');
 $('lbT').querySelectorAll('button').forEach(b=>b.onclick=()=>showLb(+b.dataset.v));
-$('onB').onclick=()=>{if(!ro){toast('Çevrimiçi bileşeni yüklenemedi. İnternet açık mı, VPN kapalı mı?');return}scr('onl');roomsTick()};$('onX').onclick=()=>{leaveRoom();scr('menu')};
+$('onB').onclick=()=>{orient(true);scr('onl');$('onx').hidden=!ro;$('onNo').hidden=!!ro;if(ro)roomsTick()};
+$('bt').onclick=()=>startBot();$('onX').onclick=()=>{leaveRoom();scr('menu')};
 $('jn').onclick=()=>{const c=$('code').value.trim().toUpperCase();if(c.length===4)joinRoom(c);else toast('4 harfli bir kod gir')};
 $('mk').onclick=()=>{const A='ABCDEFGHJKMNPQRSTUVWXYZ';let c='';for(let i=0;i<4;i++)c+=A[Math.random()*A.length|0];$('code').value=c;joinRoom(c)};
 $('lg').onclick=()=>{net.adv(null);advJ='';const g=Math.random()*1e9|0;lastG=g;rm.presence({g,gt:Date.now()}).catch(()=>{});startMatch(g)};
 $('sName').oninput=e=>{CFG.name=e.target.value.slice(0,12);save()};
-$('sSens').oninput=e=>{CFG.sens=+e.target.value;save()};
 let rt=0;
 const okR=r=>r&&/^PUB[1-8]$/.test(r.c);
 async function refreshRooms(){
@@ -320,13 +353,16 @@ $('qk').onclick=async()=>{
  const o=L.filter(r=>!r.s&&r.n<4).sort((a,b)=>b.n-a.n)[0];
  o?joinRoom(o.c):mkPub(L)};
 $('mp').onclick=()=>mkPub();
-const TUT=[['👆','Parmağınla hareket et','Parmağını ekranda sürükle, topun seni takip eder.'],['●●','İyilere dokun, kötülerden kaç','İyi nesneler puan verir, diğer renk can götürür. Peş peşe toplarsan puan çarpanı artar.'],['★','Özel nesneler','♥ can verir, ★ 4 saniye dokunulmazlık sağlar, ⏳ her şeyi yavaşlatır, ? yeni bir mutasyon başlatır.'],['🌀','Arena değişir','Belirli aralıklarla kurallar değişir: kontroller ters döner, ışıklar söner, her şey hızlanır.'],['🏆','Rekabet et','Skor tablosuna gir, çevrimiçi odalarda düello ya da 2v2 oyna.']];
+const TUT=[['👆','Parmağınla hareket et','Parmağını ekranda sürükle, top parmağınla birlikte hareket eder. Dokunmak topu ışınlamaz.'],['●●','İyilere dokun, kötülerden kaç','İyi nesneler puan verir, diğer renk can götürür. Peş peşe toplarsan puan çarpanı artar.'],['★','Özel nesneler','♥ can verir, ★ 4 saniye dokunulmazlık sağlar, ⏳ her şeyi yavaşlatır, ✸ zararlıları temizler, ? yeni bir mutasyon başlatır.'],['🌀','Arena değişir','Belirli aralıklarla kurallar değişir: kontroller ters döner, ışıklar söner, her şey hızlanır.'],['🏆','Rekabet et','Skor tablosuna gir, çevrimiçi odalarda düello ya da 2v2 oyna.']];
 const SK=['#ffffff','#7cf5ff','#b9ff7a','#ffc46b'];
-const ACH={g1:'İlk oyununu bitir',s25:'Bir oyunda 25 puan yap',s50:'Bir oyunda 50 puan yap',c15:'15 seri yap',t60:'60 saniye hayatta kal',mp:'Çevrimiçi bir maç bitir'};
+const ACH={g1:'İlk oyununu bitir',s25:'Bir oyunda 25 puan yap',s50:'Bir oyunda 50 puan yap',c15:'15 seri yap',t60:'60 saniye hayatta kal',mp:'Çevrimiçi bir maç bitir',bot:'Bota karşı bir maç kazan'};
 function ach(L){CFG.ach=CFG.ach||[];const n=L.filter(k=>!CFG.ach.includes(k));if(!n.length)return;CFG.ach.push(...n);save();toast('Başarım: '+n.map(k=>ACH[k]).join(', '))}
-const EA=[["Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.", "Drag your finger, collect the good ones and dodge the harmful ones. The arena keeps changing, so adapt."], ["Topla", "Collect"], ["Kaç", "Dodge"], ["Oyna", "Play"], ["Çevrimiçi", "Online"], ["Skorlar ve başarımlar", "Scores and achievements"], ["Nasıl oynanır", "How to play"], ["Ayarlar", "Settings"], ["Dil", "Language"], ["Zorluk", "Difficulty"], ["Kolay", "Easy"], ["Zor", "Hard"], ["Renkler", "Colors"], ["Okyanus", "Ocean"], ["Günbatımı", "Sunset"], ["Mutasyonlar", "Mutations"], ["Ses", "Sound"], ["Titreşim", "Vibration"], ["Parlama efekti", "Glow effect"], ["Top rengi", "Ball color"], ["Beyaz", "White"], ["Mavi", "Blue"], ["Yeşil", "Green"], ["Altın", "Gold"], ["Turuncu", "Orange"], ["Oyuncu adı", "Player name"], ["Hassasiyet", "Sensitivity"], ["Mutasyon sıklığı", "Mutation frequency"], ["Seyrek", "Rare"], ["Sık", "Frequent"], ["Özel nesneler", "Special items"], ["Tamam", "Done"], ["Duraklatıldı", "Paused"], ["Devam et", "Resume"], ["Ana menü", "Main menu"], ["Oyun bitti", "Game over"], ["Tekrar oyna", "Play again"], ["Skor tablosu", "Leaderboard"], ["Başarım", "Achievements"], ["Geri", "Back"], ["Hızlı katıl", "Quick join"], ["Açık oda kur", "Create public room"], ["Açık odalar", "Public rooms"], ["Özel oda", "Private room"], ["Katıl", "Join"], ["Özel oda kur", "Create private room"], ["Maç 60 saniye sürer. 2 kişi düello, 4 kişi 2v2 takım maçı olur.", "Matches last 60 seconds. 2 players make a duel, 4 players make a 2v2 team match."], ["Maçı başlat", "Start match"], ["Hoş geldin! Önce kendine bir ad seç. Skor tablosunda bu adla görüneceksin.", "Welcome! First pick a name. You will appear on the leaderboard with it."], ["Devam", "Continue"], ["İleri", "Next"], ["Atla", "Skip"], ["Başla", "Start"], ["Adın", "Your name"], ["Oda kodu", "Room code"], ["Parmağınla hareket et", "Move with your finger"], ["Parmağını ekranda sürükle, topun seni takip eder.", "Drag your finger on the screen and the ball follows you."], ["İyilere dokun, kötülerden kaç", "Touch the good, dodge the bad"], ["İyi nesneler puan verir, diğer renk can götürür. Peş peşe toplarsan puan çarpanı artar.", "Good items give points, the other color costs a life. Collect in a row to raise your multiplier."], ["♥ can verir, ★ 4 saniye dokunulmazlık sağlar, ⏳ her şeyi yavaşlatır, ? yeni bir mutasyon başlatır.", "♥ gives a life, ★ gives 4 seconds of invulnerability, ⏳ slows everything, ? starts a new mutation."], ["Arena değişir", "The arena changes"], ["Belirli aralıklarla kurallar değişir: kontroller ters döner, ışıklar söner, her şey hızlanır.", "The rules change at intervals: controls flip, lights go out, everything speeds up."], ["Rekabet et", "Compete"], ["Skor tablosuna gir, çevrimiçi odalarda düello ya da 2v2 oyna.", "Join the leaderboard and play duels or 2v2 in online rooms."], ["Küresel liste", "Global list"], ["Bu cihazdaki skorlar", "Scores on this device"], ["Yükleniyor…", "Loading…"], ["Henüz skor yok", "No scores yet"], ["İlk oyununu bitir", "Finish your first game"], ["Bir oyunda 25 puan yap", "Score 25 in one game"], ["Bir oyunda 50 puan yap", "Score 50 in one game"], ["15 seri yap", "Get a 15 streak"], ["60 saniye hayatta kal", "Survive 60 seconds"], ["Çevrimiçi bir maç bitir", "Finish an online match"], ["Can kazandın", "You gained a life"], ["+5 puan", "+5 points"], ["Joker: yeni mutasyon", "Joker: new mutation"], ["Bir ad yaz", "Enter a name"], ["4 harfli bir kod gir", "Enter a 4-letter code"], ["Oda aranıyor…", "Searching for a room…"], ["Tüm açık odalar dolu", "All public rooms are full"], ["Çevrimiçi bileşeni yüklenemedi. İnternet açık mı, VPN kapalı mı?", "The online component failed to load. Is the internet on and the VPN off?"], ["En az 2 oyuncu gerekli. Kodu arkadaşlarına gönder.", "At least 2 players are needed. Send the code to your friends."], ["Oda dolu, en fazla 4 oyuncu", "Room is full, max 4 players"], ["Şu an açık oda yok.", "No public rooms right now."], ["Süre doldu", "Time is up"], ["Berabere", "Draw"], ["Kazandın", "You won"], ["Kaybettin", "You lost"], ["Lobiye dön", "Back to lobby"], ["Süre", "Time"], ["En uzun seri", "Best streak"], ["Yeni rekor", "New record"], ["Oyuncu", "Player"], ["Renkler yer değiştirdi", "Colors swapped"], ["Zararlı olanlar artık puan veriyor", "Harmful ones now give points"], ["Ters kontrol", "Inverted controls"], ["Hareketlerin aynalandı", "Your movement is mirrored"], ["Karanlık", "Darkness"], ["Sadece çevreni görebilirsin", "You can only see around you"], ["Çekim alanı", "Magnetic field"], ["Her şey sana doğru akıyor", "Everything flows toward you"], ["Hızlanma", "Speed-up"], ["Her şey iki kat hızlı", "Everything is twice as fast"], ["Dönüş", "Spin"], ["Arena yavaşça dönüyor", "The arena slowly rotates"], ["Sis", "Fog"], ["Nesneler neredeyse görünmez", "Items are almost invisible"], ["Büyüme", "Growth"], ["Daha büyüksün", "You are bigger"], ["Yer çekimi", "Gravity"], ["Nesneler aşağı düşüyor", "Items fall downward"], ["Rüzgar", "Wind"], ["Nesneler savruluyor", "Items are blown around"], ["Sakin dönem", "Calm period"], ["Bu aralıkta değişiklik yok", "No changes this round"], ["Minik", "Tiny"], ["Topun küçüldü, artık zor yakalanırsın", "Your ball shrank, harder to hit"], ["Ağır çekim", "Slow motion"], ["Her şey yarı hızda", "Everything at half speed"], ["İtme alanı", "Repel field"], ["Nesneler senden kaçıyor", "Items run away from you"], ["Yanıp sönme", "Blink"], ["Nesneler göz kırpıyor", "Items flicker in and out"], ["Yatay ayna", "Horizontal mirror"], ["Sağ ve sol yer değiştirdi", "Left and right are swapped"], ["Dikey ayna", "Vertical mirror"], ["Yukarı ve aşağı yer değiştirdi", "Up and down are swapped"], ["Ağır top", "Heavy ball"], ["Topun geç tepki veriyor", "Your ball reacts slowly"], ["Altın saat", "Golden hour"], ["Tüm puanlar iki kat", "All points are doubled"], ["Işınlanma", "Warp"], ["Nesneler kenardan geçip öbür tarafa çıkıyor", "Items wrap around the screen edges"], ["Çılgınlık", "Frenzy"], ["Ekran nesnelerle doluyor", "The screen fills with items"], ["Yörünge", "Orbit"], ["Nesneler merkez etrafında salınıyor", "Items swing around the center"], ["Dalga", "Wave"], ["Nesneler dalga gibi hareket ediyor", "Items move in waves"], ["Fener", "Torch"], ["Sadece çok yakınını görebilirsin", "You can only see very close"], ["Donma", "Freeze"], ["Nesneler olduğu yerde duruyor", "Items stand still"]];
+const EA=[["Parmağını sürükle, iyi olanları topla, zararlılardan kaç. Arena oynadıkça değişir, uyum sağla.", "Drag your finger, collect the good ones and dodge the harmful ones. The arena keeps changing, so adapt."], ["Topla", "Collect"], ["Kaç", "Dodge"], ["Oyna", "Play"], ["Çevrimiçi", "Online"], ["Skorlar ve başarımlar", "Scores and achievements"], ["Nasıl oynanır", "How to play"], ["Ayarlar", "Settings"], ["Dil", "Language"], ["Zorluk", "Difficulty"], ["Kolay", "Easy"], ["Zor", "Hard"], ["Renkler", "Colors"], ["Okyanus", "Ocean"], ["Günbatımı", "Sunset"], ["Mutasyonlar", "Mutations"], ["Ses", "Sound"], ["Titreşim", "Vibration"], ["Parlama efekti", "Glow effect"], ["Top rengi", "Ball color"], ["Beyaz", "White"], ["Mavi", "Blue"], ["Yeşil", "Green"], ["Altın", "Gold"], ["Turuncu", "Orange"], ["Oyuncu adı", "Player name"], ["Hassasiyet", "Sensitivity"], ["Mutasyon sıklığı", "Mutation frequency"], ["Seyrek", "Rare"], ["Sık", "Frequent"], ["Özel nesneler", "Special items"], ["Tamam", "Done"], ["Duraklatıldı", "Paused"], ["Devam et", "Resume"], ["Ana menü", "Main menu"], ["Oyun bitti", "Game over"], ["Tekrar oyna", "Play again"], ["Skor tablosu", "Leaderboard"], ["Başarım", "Achievements"], ["Geri", "Back"], ["Hızlı katıl", "Quick join"], ["Açık oda kur", "Create public room"], ["Açık odalar", "Public rooms"], ["Özel oda", "Private room"], ["Katıl", "Join"], ["Özel oda kur", "Create private room"], ["Maç 60 saniye sürer. 2 kişi düello, 4 kişi 2v2 takım maçı olur.", "Matches last 60 seconds. 2 players make a duel, 4 players make a 2v2 team match."], ["Maçı başlat", "Start match"], ["Hoş geldin! Önce kendine bir ad seç. Skor tablosunda bu adla görüneceksin.", "Welcome! First pick a name. You will appear on the leaderboard with it."], ["Devam", "Continue"], ["İleri", "Next"], ["Atla", "Skip"], ["Başla", "Start"], ["Adın", "Your name"], ["Oda kodu", "Room code"], ["Parmağınla hareket et", "Move with your finger"], ["Parmağını ekranda sürükle, top parmağınla birlikte hareket eder. Dokunmak topu ışınlamaz.", "Drag your finger on the screen and the ball moves with it. Tapping does not teleport the ball."], ["İyilere dokun, kötülerden kaç", "Touch the good, dodge the bad"], ["İyi nesneler puan verir, diğer renk can götürür. Peş peşe toplarsan puan çarpanı artar.", "Good items give points, the other color costs a life. Collect in a row to raise your multiplier."], ["♥ can verir, ★ 4 saniye dokunulmazlık sağlar, ⏳ her şeyi yavaşlatır, ✸ zararlıları temizler, ? yeni bir mutasyon başlatır.", "♥ gives a life, ★ gives 4 seconds of invulnerability, ⏳ slows everything, ✸ clears harmful items, ? starts a new mutation."], ["Arena değişir", "The arena changes"], ["Belirli aralıklarla kurallar değişir: kontroller ters döner, ışıklar söner, her şey hızlanır.", "The rules change at intervals: controls flip, lights go out, everything speeds up."], ["Rekabet et", "Compete"], ["Skor tablosuna gir, çevrimiçi odalarda düello ya da 2v2 oyna.", "Join the leaderboard and play duels or 2v2 in online rooms."], ["Küresel liste", "Global list"], ["Bu cihazdaki skorlar", "Scores on this device"], ["Yükleniyor…", "Loading…"], ["Henüz skor yok", "No scores yet"], ["İlk oyununu bitir", "Finish your first game"], ["Bir oyunda 25 puan yap", "Score 25 in one game"], ["Bir oyunda 50 puan yap", "Score 50 in one game"], ["15 seri yap", "Get a 15 streak"], ["60 saniye hayatta kal", "Survive 60 seconds"], ["Çevrimiçi bir maç bitir", "Finish an online match"], ["Can kazandın", "You gained a life"], ["+5 puan", "+5 points"], ["Joker: yeni mutasyon", "Joker: new mutation"], ["Bir ad yaz", "Enter a name"], ["4 harfli bir kod gir", "Enter a 4-letter code"], ["Oda aranıyor…", "Searching for a room…"], ["Tüm açık odalar dolu", "All public rooms are full"], ["Çevrimiçi bileşeni yüklenemedi. İnternet açık mı, VPN kapalı mı?", "The online component failed to load. Is the internet on and the VPN off?"], ["En az 2 oyuncu gerekli. Kodu arkadaşlarına gönder.", "At least 2 players are needed. Send the code to your friends."], ["Oda dolu, en fazla 4 oyuncu", "Room is full, max 4 players"], ["Şu an açık oda yok.", "No public rooms right now."], ["Süre doldu", "Time is up"], ["Berabere", "Draw"], ["Kazandın", "You won"], ["Kaybettin", "You lost"], ["Lobiye dön", "Back to lobby"], ["Süre", "Time"], ["En uzun seri", "Best streak"], ["Yeni rekor", "New record"], ["Oyuncu", "Player"], ["Renkler yer değiştirdi", "Colors swapped"], ["Zararlı olanlar artık puan veriyor", "Harmful ones now give points"], ["Ters kontrol", "Inverted controls"], ["Hareketlerin aynalandı", "Your movement is mirrored"], ["Karanlık", "Darkness"], ["Sadece çevreni görebilirsin", "You can only see around you"], ["Çekim alanı", "Magnetic field"], ["Her şey sana doğru akıyor", "Everything flows toward you"], ["Hızlanma", "Speed-up"], ["Her şey iki kat hızlı", "Everything is twice as fast"], ["Dönüş", "Spin"], ["Arena yavaşça dönüyor", "The arena slowly rotates"], ["Sis", "Fog"], ["Nesneler neredeyse görünmez", "Items are almost invisible"], ["Büyüme", "Growth"], ["Daha büyüksün", "You are bigger"], ["Yer çekimi", "Gravity"], ["Nesneler aşağı düşüyor", "Items fall downward"], ["Rüzgar", "Wind"], ["Nesneler savruluyor", "Items are blown around"], ["Sakin dönem", "Calm period"], ["Bu aralıkta değişiklik yok", "No changes this round"], ["Minik", "Tiny"], ["Topun küçüldü, artık zor yakalanırsın", "Your ball shrank, harder to hit"], ["Ağır çekim", "Slow motion"], ["Her şey yarı hızda", "Everything at half speed"], ["İtme alanı", "Repel field"], ["Nesneler senden kaçıyor", "Items run away from you"], ["Yanıp sönme", "Blink"], ["Nesneler göz kırpıyor", "Items flicker in and out"], ["Yatay ayna", "Horizontal mirror"], ["Sağ ve sol yer değiştirdi", "Left and right are swapped"], ["Dikey ayna", "Vertical mirror"], ["Yukarı ve aşağı yer değiştirdi", "Up and down are swapped"], ["Ağır top", "Heavy ball"], ["Topun geç tepki veriyor", "Your ball reacts slowly"], ["Altın saat", "Golden hour"], ["Tüm puanlar iki kat", "All points are doubled"], ["Işınlanma", "Warp"], ["Nesneler kenardan geçip öbür tarafa çıkıyor", "Items wrap around the screen edges"], ["Çılgınlık", "Frenzy"], ["Ekran nesnelerle doluyor", "The screen fills with items"], ["Yörünge", "Orbit"], ["Nesneler merkez etrafında salınıyor", "Items swing around the center"], ["Dalga", "Wave"], ["Nesneler dalga gibi hareket ediyor", "Items move in waves"], ["Fener", "Torch"], ["Sadece çok yakınını görebilirsin", "You can only see very close"], ["Donma", "Freeze"], ["Nesneler olduğu yerde duruyor", "Items stand still"]];
 const PT=[[" (sen)", " (you)"], ["Oda: ", "Room: "], ["Merhaba, ", "Hello, "], ["En iyi: ", "Best: "], ["(APK sürüm ", "(APK version "], ["(sürüm ", "(version "], ["Başarım: ", "Achievement: "], ["Odaya bağlanılamadı", "Could not join the room"], ["Dokunulmazlık", "Invulnerable"], ["Yavaşlatma", "Slow-down"], ["Mavi ", "Blue "], ["Turuncu ", "Orange "], ["2v2 takım maçı", "2v2 team match"], ["1v1 düello", "1v1 duel"], ["Herkes tek başına", "Free for all"], [", oda sahibi başlatınca maç başlar", ", the match starts when the host begins"], ["4 can, yavaş tempo", "4 lives, slow pace"], ["3 can, dengeli tempo", "3 lives, balanced pace"], ["2 can, hızlı tempo", "2 lives, fast pace"], [", mutasyon aralığı ", ", mutation interval "], ["İlk oyununu bitir", "Finish your first game"], ["Bir oyunda 25 puan yap", "Score 25 in one game"], ["Bir oyunda 50 puan yap", "Score 50 in one game"], ["15 seri yap", "Get a 15 streak"], ["60 saniye hayatta kal", "Survive 60 seconds"], ["Çevrimiçi bir maç bitir", "Finish an online match"]];
 PT.push([/(\d+)\/(\d+) açıldı/,'$1/$2 unlocked'],[/(\d+) sn\b/g,'$1 s']);
+EA.push(...[["Bota karşı oyna", "Play vs bot"], ["Bomba: zararlılar temizlendi", "Bomb: harmful items cleared"], ["Bonus can: +1", "Bonus life: +1"], ["Bota karşı bir maç kazan", "Win a match against the bot"], ["İstatistik", "Stats"], ["Oynanan oyun", "Games played"], ["Toplam skor", "Total score"], ["Toplam süre", "Total time"], ["Çevrimiçi odalar şu an kullanılamıyor, bota karşı oynayabilirsin.", "Online rooms are unavailable right now, but you can play against the bot."]]);
+PT.push([/(\d+) dk\b/g,'$1 min']);
+EA.push(['Elendin','You are out'],['Müzik','Music'],['Elenme ile bitti','Ended by elimination']);
 const EN={};for(const [a,b] of EA)EN[a]=b;
 function tx(s){if(!CFG.lang)return s;const t=s.trim();if(!t)return s;const e=EN[t];if(e!==undefined)return s.replace(t,e);let r=s;for(const [a,b] of PT)r=typeof a==='string'?r.split(a).join(b):r.replace(a,b);return r}
 function walk(n){
@@ -337,6 +373,56 @@ function walk(n){
 const OB={childList:true,subtree:true,characterData:true};
 const obs=new MutationObserver(ms=>{if(!CFG.lang)return;obs.disconnect();for(const m of ms){if(m.type==='characterData')walk(m.target);else m.addedNodes.forEach(walk)}obs.observe(document.body,OB)});
 function applyLang(){document.documentElement.lang=CFG.lang?'en':'tr';obs.disconnect();walk(document.body);obs.observe(document.body,OB)}
+function orient(land){
+ try{const C=window.Capacitor,SO=C&&((C.Plugins&&C.Plugins.ScreenOrientation)||(C.registerPlugin&&C.registerPlugin('ScreenOrientation')));
+  if(SO){SO.lock({orientation:land?'landscape':'portrait'}).catch(()=>{});return}
+  if(land){const e=document.documentElement;(e.requestFullscreen?e.requestFullscreen():Promise.reject()).then(()=>screen.orientation.lock('landscape')).catch(()=>{})}
+  else{if(screen.orientation&&screen.orientation.unlock)screen.orientation.unlock();if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}
+ }catch(e){}}
+const BDB=[{spd:250,R:0,H:3,blind:.4,wob:.3,dp:.3},{spd:340,R:6,H:5,blind:.12,wob:.1,dp:.6},{spd:400,R:8,H:6,blind:.03,wob:.05,dp:.8}];
+function startBot(){
+ const d=CFG.diff,me={peer:'a-me',isMe:true,presence:{n:CFG.name||'Oyuncu'}},bot={peer:'b-bot',isMe:false,presence:{n:'Bot',sc:0,x:.5,y:.2,hp:3}};
+ rm={peers:()=>[me,bot],presence:async p=>{Object.assign(me.presence,p)},onPeers:()=>()=>{},leave:async()=>{}};
+ oc='BOT';
+ BOT=Object.assign({x:W*.5,y:H*.2,vx:0,vy:0,sc:0,hp:3,out:false,inv:0,wa:0,wt:0,bl:0},BDB[d]||BDB[1]);
+ startMatch(Math.random()*1e9|0)}
+function botStep(dt){
+ const b=BOT,pr=rm.peers()[1].presence,sw=!!(S.rule&&S.rule.k==='swap');
+ if(b.out){pr.hp=0;return}
+ let tg=null,bs=-1e9,ax=b.x,ay=b.y;
+ for(const i of S.items){
+  const good=i.sp?(i.sp==='h'||i.sp==='s'):i.g!==sw;if(!good)continue;
+  const d=Math.hypot(i.x-b.x,i.y-b.y),t=d/b.spd,px=i.x+i.vx*t*.7,py=i.y+i.vy*t*.7;
+  let dg=0;for(const j of S.items){if(j.sp||j.g!==sw)continue;const e=Math.hypot(px-j.x,py-j.y);if(e<70)dg+=1-e/70}
+  const v=(i.sp?1.4:1)/(t+.3)*(i===b.tg?1.35:1)-dg*b.dp;
+  if(v>bs){bs=v;tg=i;ax=px;ay=py}}
+ b.tg=tg;
+ b.bl-=dt;if(b.bl<=0&&Math.random()<b.blind*dt)b.bl=.5;
+ b.wt-=dt;if(b.wt<=0){b.wt=.8;b.wa=Math.random()*6.283}
+ const cs=Math.hypot(b.vx,b.vy)||1;let dx=0,dy=0,bc=1e9;
+ for(let k=-1;k<16;k++){
+  const an=k/16*6.283,cx=k<0?0:Math.cos(an),cy=k<0?0:Math.sin(an),seen=new Set();let cost=0;
+  for(let st=1;st<=b.H;st++){
+   const t=st*.1,x=b.x+cx*b.spd*t,y=b.y+cy*b.spd*t;
+   if(x<14||x>W-14||y<14||y>H-14)cost+=3;
+   for(const j of S.items){
+    const d=Math.hypot(x-(j.x+j.vx*t),y-(j.y+j.vy*t)),hit=j.r+14;
+    if(j.sp){if(d<hit&&j===tg&&!seen.has(j)){seen.add(j);cost-=6}continue}
+    if(j.g===sw){if(b.bl<=0&&d<hit+b.R)cost+=(d<hit?220:25*(1-(d-hit)/b.R))*Math.exp(-2.5*t)}
+    else if(d<hit&&!seen.has(j)){seen.add(j);cost-=14*(1.3-t)}}}
+  const ex=b.x+cx*b.spd*b.H*.1,ey=b.y+cy*b.spd*b.H*.1;
+  if(tg)cost+=Math.hypot(ax-ex,ay-ey)*.14;else cost+=Math.hypot(W/2-ex,H/2-ey)*.02+(k<0?0:(1-Math.cos(an-b.wa))*b.wob*10);
+  if(k>=0)cost+=(1-(cx*b.vx+cy*b.vy)/cs)*1.5;
+  if(cost<bc){bc=cost;dx=cx;dy=cy}}
+ const f=Math.min(1,dt*9);b.vx+=(dx*b.spd-b.vx)*f;b.vy+=(dy*b.spd-b.vy)*f;
+ b.x=Math.max(14,Math.min(W-14,b.x+b.vx*dt));b.y=Math.max(14,Math.min(H-14,b.y+b.vy*dt));
+ b.inv=Math.max(0,b.inv-dt);
+ for(let n=S.items.length-1;n>=0;n--){const i=S.items[n];
+  if(Math.hypot(i.x-b.x,i.y-b.y)>=i.r+14)continue;
+  S.items.splice(n,1);burst(i.x,i.y,i.sp?SPC[i.sp].c:i.g?P.g:P.b);
+  if(i.sp){b.sc+=3;continue}
+  if(i.g!==sw)b.sc+=1;else if(b.inv<=0){b.hp--;b.inv=1;if(b.hp<=0)b.out=true}}
+ pr.x=b.x/W;pr.y=b.y/H;pr.sc=b.sc;pr.hp=b.hp}
 let ti=0;
 function tut(i){ti=i;const t=TUT[i];$('tI').innerHTML=i===1?'<span style="color:'+P.g+'">●</span><span style="color:'+P.b+'">●</span>':t[0];$('tT').textContent=t[1];$('tD').textContent=t[2];$('tDots').textContent=TUT.map((_,k)=>k===i?'●':'○').join(' ');$('tN').textContent=i===TUT.length-1?'Başla':'İleri';scr('tut')}
 function tutEnd(){CFG.seen=true;save();sync();scr('menu')}
@@ -390,19 +476,19 @@ function loop(t){
  if(S.run)step(dt);
  else if(idle)for(const i of S.items){i.x+=i.vx*dt*.5;i.y+=i.vy*dt*.5;if((i.x<i.r&&i.vx<0)||(i.x>W-i.r&&i.vx>0))i.vx*=-1;if((i.y<i.r&&i.vy<0)||(i.y>H-i.r&&i.vy>0))i.vy*=-1}
  draw();requestAnimationFrame(loop)}
-for(const [id,k] of [['sDiff','diff'],['sPal','pal'],['sFreq','freq'],['sSkin','skin'],['sLang','lang'],['wLang','lang']])$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{CFG[k]=+b.dataset.v;save();sync()});
-for(const [id,k] of [['sMut','mut'],['sSnd','snd'],['sVib','vib'],['sGlow','glow'],['sSpec','spec']])$(id).onchange=e=>{CFG[k]=e.target.checked;save();sync()};
+for(const [id,k] of [['sDiff','diff'],['sPal','pal'],['sSkin','skin'],['sLang','lang'],['wLang','lang']])$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{CFG[k]=+b.dataset.v;save();sync()});
+for(const [id,k] of [['sSnd','snd'],['sMus','mus'],['sVib','vib'],['sGlow','glow']])$(id).onchange=e=>{CFG[k]=e.target.checked;save();sync()};
 $('play').onclick=play;$('again').onclick=()=>M?backLobby():play();
 $('open').onclick=()=>{from='menu';scr('set')};
-$('open2').onclick=()=>{from='pause';scr('set')};
 $('sBack').onclick=()=>{sync();scr(from)};
 $('res').onclick=()=>{scr(null);S.run=true};
 $('pz').onclick=pause;
 $('home').onclick=$('home2').onclick=home;
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
 try{Object.assign(CFG,JSON.parse(localStorage.getItem('flux_cfg')||'{}'))}catch(e){}
+CFG.mut=true;CFG.spec=true;CFG.freq=1;CFG.sens=12;
 rs();seed();sync();scr(CFG.seen?'menu':'wel');requestAnimationFrame(loop);
-(async()=>{try{if(window.claude&&claude.use){db=await claude.use('db');const u=await claude.use('user');if(u&&u.id)uid=await u.id();ro=await claude.use('room');if(ro)net={list:async()=>ro.peers().map(p=>p.presence&&p.presence.pub).filter(Boolean),adv:v=>ro.presence({pub:v}).catch(()=>{})}}}catch(e){}if(!ro){if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(!window.Peer)await new Promise(r=>{const x=document.createElement('script');x.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';x.onload=x.onerror=r;document.head.appendChild(x)});if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(window.Peer){ro={join:peerRoom};net={list:peerList,adv:()=>{}}}}$('onB').hidden=false;sync()})();
+(async()=>{try{if(window.claude&&claude.use){db=await claude.use('db');const u=await claude.use('user');if(u&&u.id)uid=await u.id();ro=await claude.use('room');if(ro)net={list:async()=>ro.peers().map(p=>p.presence&&p.presence.pub).filter(Boolean),adv:v=>ro.presence({pub:v}).catch(()=>{})}}}catch(e){}if(!ro){if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(!window.Peer)await new Promise(r=>{const x=document.createElement('script');x.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';x.onload=x.onerror=r;document.head.appendChild(x)});if(!window.Peer&&window.peerjs)window.Peer=peerjs.Peer;if(window.Peer){ro={join:peerRoom};net={list:peerList,adv:()=>{}}}}sync()})();
 </script>
 </body>
 </html>
